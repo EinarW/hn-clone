@@ -1,5 +1,6 @@
 import React from "react";
 import Loading from "./Loading";
+import Nav from './Nav'
 import queryString from "query-string";
 import { getStories } from "../utils/api";
 import { convertTime } from "../utils/time";
@@ -66,6 +67,7 @@ export default class Popular extends React.Component {
         const { type, posts } = this.state
             return (
                 <React.Fragment>
+                    <Nav/>
                     {this.isLoading() && <Loading content={`Fetching ${this.state.type} posts`} />}
                     {this.isLoading() === false && this.state.error === true && this.state.error}
                     {this.isLoading() === false && this.state.error === null && (

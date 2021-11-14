@@ -3,7 +3,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Posts from './components/Posts'
 import Loading from './components/Loading'
-import Nav from './components/Nav'
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
 
 export default function App () {
@@ -12,7 +11,6 @@ export default function App () {
         <Router>
             <div className='container'>
                 <h1>Hacker News Clone</h1>
-                <Nav />
                 <React.Suspense fallback={<Loading/>}>
                     <Switch>
                         <Redirect exact from='/' to='/posts'/>
