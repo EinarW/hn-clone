@@ -3,8 +3,7 @@ import Loading from "./Loading";
 import Nav from './Nav'
 import queryString from "query-string";
 import { getStories } from "../utils/api";
-import { convertTime } from "../utils/time";
-
+import Item from "./Item";
 
 export default class Popular extends React.Component {
     state = {
@@ -25,7 +24,7 @@ export default class Popular extends React.Component {
 
     updateStories = () => {
         this.setState({
-            type: this.findType(),
+            type: this.getTypeFromQueryString(),
             error: null,
             posts: null
         }, () => {
@@ -40,16 +39,7 @@ export default class Popular extends React.Component {
         
     }
 
-    numberOfComments = (comments) => {
-        let count = 0
-        if (comments !== undefined) {
-            comments.forEach(() => count++)
-        }
-        
-        return count
-    }
-
-    findType = () => {
+    getTypeFromQueryString = () => {
         let queryType = queryString.parse(this.props.location.search).type
         queryType = queryType === undefined ? 'top' : queryType
 
@@ -64,49 +54,18 @@ export default class Popular extends React.Component {
     
     
     render() {
-        const { type, posts } = this.state
+        const { type, posts, error } = this.state
             return (
                 <React.Fragment>
                     <Nav/>
-                    {this.isLoading() && <Loading content={`Fetching ${this.state.type} posts`} />}
-                    {this.isLoading() === false && this.state.error === true && this.state.error}
-                    {this.isLoading() === false && this.state.error === null && (
+                    {this.isLoading() && <Loading content={`Fetching ${type} posts`} />}
+                    {this.isLoading() === false && error === true && error}
+                    {this.isLoading() === false && error === null && (
                         <React.Fragment>
                             <ul>
                                 {Object.keys(posts).map((id) => (
                                     <li key={id}>
-                                        <div className='item'>
-                                            <ul>
-                                                <li>
-                                                    <h3 className='title'>
-                                                        <a href={
-                                                            posts[id].url === undefined 
-                                                                ? `https://news.ycombinator.com/item?id=${posts[id].id}` 
-                                                                : posts[id].url 
-                                                        }>
-                                                            {posts[id].title}
-                                                        </a>
-                                                    </h3>
-                                                </li>
-                                                <li>
-                                                    {'by '} 
-                                                    <a 
-                                                        className='with-line' 
-                                                        href={`https://news.ycombinator.com/user?id=${posts[id].by}`}
-                                                    >
-                                                        {posts[id].by}
-                                                    </a>
-                                                    {` on ${convertTime(posts[id].time)} with `}
-                                                    <a 
-                                                        className='with-line' 
-                                                        href={`https://news.ycombinator.com/item?id=${posts[id].id}`}
-                                                    >
-                                                        {this.numberOfComments(posts[id].kids)}
-                                                    </a>
-                                                    {' comments'}
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <Item item={posts[id]}/>
                                     </li>
                                 ))}
                             </ul>
