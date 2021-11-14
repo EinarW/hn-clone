@@ -10,7 +10,7 @@ export default function App () {
     return(
         <Router>
             <div className='container'>
-                <h1>Hacker News Clone</h1>
+                <h1><Link className='main-title' to='/posts'>Hacker News Clone</Link></h1>
                 <React.Suspense fallback={<Loading/>}>
                     <Switch>
                         <Redirect exact from='/' to='/posts'/>

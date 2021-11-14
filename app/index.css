@@ -16,6 +16,14 @@ li {
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+Link {
+    text-decoration: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -69,6 +77,8 @@ li {
     padding: 0;
     color:rgb(214, 43, 31);
 }
-.item .title a {
-    text-decoration: none;
+
+
+.main-title {
+    color: inherit;
 }
