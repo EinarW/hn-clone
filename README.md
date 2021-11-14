@@ -6,4 +6,5 @@ A soft Hacker News clone, built as part of the final free-form project in the ui
 
 &nbsp;
 
-![Example screenshot](https://i.imgur.com/QpxGMP2.png)
+![Top posts](https://i.imgur.com/3jBkbDK.png)
+![User page](https://i.imgur.com/1EgESqF.png)

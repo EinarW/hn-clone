@@ -58,7 +58,7 @@ export default class Popular extends React.Component {
             return (
                 <React.Fragment>
                     <Nav/>
-                    {this.isLoading() && <Loading content={`Fetching ${type} posts`} />}
+                    {this.isLoading() && <Loading content={`Fetching ${this.getTypeFromQueryString()} posts`} />}
                     {this.isLoading() === false && error === true && error}
                     {this.isLoading() === false && error === null && (
                         <React.Fragment>

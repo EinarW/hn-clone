@@ -2,6 +2,7 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Posts from './components/Posts'
+import User from './components/User'
 import Loading from './components/Loading'
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
 
@@ -15,6 +16,7 @@ export default function App () {
                     <Switch>
                         <Redirect exact from='/' to='/posts'/>
                         <Route exact path='/posts' component={Posts} />
+                        <Route exact path='/user' component={User} />
 
                         <Route render={() => (
                                 <React.Fragment>

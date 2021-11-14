@@ -62,19 +62,38 @@ Link {
     cursor: pointer;
 }
 
-.item {
-    margin-bottom: 1.5em;
+.item-description {
+margin-bottom: 2em;
 }
-.item a {
-    color: inherit;
+.item-description a {
+    color: black;
 }
-.item .title {
+.item-description .title {
     margin: 0;
     padding: 0;
+}
+.item-description .title a {
+    text-decoration: none;
     color:rgb(214, 43, 31);
 }
-.item .title a {
-    text-decoration: none;
+.item-description li {
+    color: rgb(122, 122, 122)
+}
+
+.user-description {
+    color: rgb(122, 122, 122)
+}
+.user-description h1, .user h2 {
+    margin-bottom: 0.25em;
+    color: black;
+}
+.user-description p {
+    display: inline;
+    font-weight: bold;
+}
+.user-about {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 

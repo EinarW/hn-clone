@@ -1,7 +1,6 @@
 import React from "react";
 import { convertTime } from "../utils/time";
 import { Link } from "react-router-dom";
-import { render } from "react-dom";
 
 export default class Item extends React.Component {
     numberOfComments = (comments) => {
@@ -17,7 +16,7 @@ export default class Item extends React.Component {
         const { item, fontSize = '20px'} = this.props
 
         return (
-            <div className='item'>
+            <div className='item-description'>
                 <ul>
                     <li>
                         <h3 style={{fontSize: fontSize}} className='title'>
