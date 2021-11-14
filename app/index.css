@@ -16,10 +16,6 @@ li {
     list-style-type: none;
 }
 
-a {
-    text-decoration: none;
-}
-
 Link {
     text-decoration: none;
 }
@@ -76,6 +72,9 @@ Link {
     margin: 0;
     padding: 0;
     color:rgb(214, 43, 31);
+}
+.item .title a {
+    text-decoration: none;
 }
 
 

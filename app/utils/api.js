@@ -13,6 +13,8 @@ export function getStories(type) {
             return ids.slice(0, 50)
         })
         .then((ids) => Promise.all(ids.map(fetchItem)))
+        .then((items) => removeDead(items))
+        .then((items) => removeDeleted(items))
 
 }
 
@@ -22,3 +24,10 @@ function fetchItem (id) {
         .then((res) => res.json())
 }
 
+function removeDead (items) {
+    return items.filter(({ dead }) => dead === false || dead === undefined)
+}
+
+function removeDeleted (items) {
+    return items.filter(({ deleted }) => deleted === false || deleted === undefined)
+}
