@@ -67,7 +67,7 @@ export default class Item extends React.Component {
                             >
                                 {this.numberOfComments(item.kids)}
                             </Link>
-                            {isComment === false ? ' top level comments' : ' replies'}
+                            {isComment === false ? ' top level comments' : ((this.numberOfComments(item.kids) > 1) || (this.numberOfComments(item.kids) === 0) ? ' replies' : ' reply')}
                         </React.Fragment>
                     </li>
                     {this.props.showText && item.url === undefined && (
