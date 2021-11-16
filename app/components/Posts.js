@@ -1,9 +1,9 @@
 import React from "react";
 import Loading from "./Loading";
+import Item from "./Item";
 import Nav from './Nav'
 import queryString from "query-string";
 import { getStories } from "../utils/api";
-import Item from "./Item";
 
 export default class Popular extends React.Component {
     state = {

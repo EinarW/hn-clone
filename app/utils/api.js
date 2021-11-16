@@ -17,6 +17,12 @@ export function getStories(type) {
         .then((items) => filterDeleted(items))
 }
 
+
+// Get post
+export function getPost(id) {
+    return fetchItem(id)
+}
+
 export function getUser(username) {
     return fetch(`${api}/user/${username}${json}`)
         .then((res) => res.json())
@@ -29,21 +35,20 @@ export function getUser(username) {
         })
 }
 
-export function getUserPosts(submitted) {
-    return Promise.all(submitted.slice(0, 50).map(fetchItem))
+export function getChildItems(children, skipTypeFilter = false) {
+    return Promise.all(children.slice(0, 50).map(fetchItem))
         .then((items) => filterDead(items))
         .then((items) => filterDeleted(items))
-        .then((items) => filterPostType(items))
+        .then((items) => filterPostType(items, skipTypeFilter))
         .catch((error) => error)
 }
-
 
 function fetchItem (id) {
     return fetch(`${api}/item/${id}${json}`)
         .then((res) => res.json())
         .then((item) => {
             if (!item) {
-                throw new Error ('Something went wrong fetching an item. Please try again later.')
+                throw new Error (`Something went wrong fetching item #${id}. Please try again later.`)
             }
 
             return item
@@ -58,6 +63,8 @@ function filterDeleted (items) {
     return items.filter(({ deleted }) => deleted === false || deleted === undefined)
 }
 
-function filterPostType (items) {
+function filterPostType (items, skip = false) {
+    if (skip) return items    
+
     return items.filter(({ type }) => type === 'story' || type === undefined)
 }

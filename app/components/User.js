@@ -2,7 +2,7 @@ import React from "react";
 import Loading from "./Loading";
 import Item from "./Item";
 import queryString from "query-string";
-import { getUser, getUserPosts } from "../utils/api";
+import { getUser, getChildItems } from "../utils/api";
 import { convertTime } from "../utils/time";
 
 export default class User extends React.Component {
@@ -25,7 +25,7 @@ export default class User extends React.Component {
                 .then((user) => this.setState({
                     user: user
                 }, () => {
-                    getUserPosts(this.state.user.submitted)
+                    getChildItems(this.state.user.submitted)
                         .then((posts) => this.setState({
                             posts: posts
                         }))
@@ -55,7 +55,7 @@ export default class User extends React.Component {
             <React.Fragment>
                 {this.isLoading() && <Loading content='Fetching user data'/>}
                 {this.isLoading() === false && (
-                    <div className='user'>
+                    <React.Fragment>
                         <div className='user-description'>
                             <h1>{user.id}</h1>
                             {'joined '}
@@ -75,7 +75,7 @@ export default class User extends React.Component {
                                 </li>
                             ))}
                         </div>
-                    </div>
+                    </React.Fragment>
                 )}
             </React.Fragment>
         )

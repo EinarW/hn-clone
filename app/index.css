@@ -79,6 +79,10 @@ margin-bottom: 2em;
 .item-description li {
     color: rgb(122, 122, 122)
 }
+.item-text {
+    margin-top: 10px;
+    color: black!important;
+}
 
 .user-description {
     color: rgb(122, 122, 122)
