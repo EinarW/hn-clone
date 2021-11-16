@@ -19,11 +19,13 @@ export default class Item extends React.Component {
     render() {
         const { item, fontSize = '20px'} = this.props
 
+        const isComment = item.type === 'comment'
+
         return (
             <div 
                 className='item-description' 
                 style={
-                    this.props.isComment ? {
+                    isComment ? {
                         backgroundColor: 'rgb(240,240,240)', 
                         padding: '1em',
                         borderRadius: '10px'
@@ -32,7 +34,7 @@ export default class Item extends React.Component {
                 }
             >
                 <ul>
-                    {this.props.isComment !== true && (
+                    {isComment !== true && (
                         <li>
                             <h3 style={{fontSize: fontSize}} className='title'>
                                 {item.url === undefined && (
@@ -56,14 +58,17 @@ export default class Item extends React.Component {
                         >
                             {item.by}
                         </Link>
-                        {` on ${convertTime(item.time)} with `}
-                        <Link 
-                            className='with-line' 
-                            to={`/post?id=${item.id}`}
-                        >
-                            {this.numberOfComments(item.kids)}
-                        </Link>
-                        {' comments'}
+                        {` on ${convertTime(item.time)}`}
+                            <React.Fragment>
+                            {` with `}
+                            <Link 
+                                className='with-line' 
+                                to={`/post?id=${item.id}`}
+                            >
+                                {this.numberOfComments(item.kids)}
+                            </Link>
+                            {isComment === false ? ' top level comments' : ' replies'}
+                        </React.Fragment>
                     </li>
                     {this.props.showText && item.url === undefined && (
                         <li className='item-text'>
@@ -77,6 +82,5 @@ export default class Item extends React.Component {
 }
 
 Item.defaultProps = {
-    showText: false,
-    isComment: false
+    showText: false
 }

@@ -14,6 +14,16 @@ export default class Post extends React.Component {
     }
 
     componentDidMount() {
+        this.getItem()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.location.search !== prevProps.location.search) {
+            this.getItem();
+        }
+    }
+
+    getItem = () => {
         this.setState({
             id: this.getPostIdFromQueryString()
         }, () => {
@@ -65,7 +75,7 @@ export default class Post extends React.Component {
                         </li>
                         {comments.map((comment) => (
                             <li key={comment.id}> 
-                                <Item isComment={true} showText={true} item={comment}/>
+                                <Item showText={true} item={comment}/>
                             </li>
                         ))}
                     </ul>

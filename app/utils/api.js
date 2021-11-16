@@ -36,6 +36,8 @@ export function getUser(username) {
 }
 
 export function getChildItems(children, skipTypeFilter = false) {
+    if (!children) return Promise.all([])
+
     return Promise.all(children.slice(0, 50).map(fetchItem))
         .then((items) => filterDead(items))
         .then((items) => filterDeleted(items))
