@@ -26,29 +26,6 @@ Link {
     padding: 50px;
 }
 
-h1 {
-    font-size: 6em;
-}
-.loading-text {
-    font-size: 3em;
-}
-.btn-theme, h2 {
-    font-size: 3.5em;
-}
-h3 a, .item-description, .user-description span {
-    font-size: 2.5em;
-}
-
-
-hr {
-    border: 0;
-    background-color:#DADADA;
-    height: 0.15em;
-}
-.dark hr {
-    background-color:#0f1213;
-}
-
 .dark {
     color: #DADADA;
     background: #1C2022;
@@ -88,32 +65,31 @@ hr {
 .nav-link {
     margin-right: 0.5em;
     text-decoration: none;
-    font-size: 3.5em;
+    font-size: 1.25em;
     font-weight: bold;
     color: inherit;
     cursor: pointer;
 }
 
-.item {
-    margin-top: 3em;
-    margin-bottom: 4em;
+.item-description {
+margin-bottom: 2em;
 }
 
-.dark .item a {
+.dark .item-description a {
     color: #DADADA;;
 }
-.item a {
+.item-description a {
     color: black;
 }
-.item .title {
+.item-description .title {
     margin: 0;
     padding: 0;
 }
-.item .title a {
+.item-description .title a {
     text-decoration: none;
     color:rgb(214, 43, 31);
 }
-.item li {
+.item-description li {
     color: rgb(122, 122, 122)
 }
 
@@ -125,28 +101,27 @@ hr {
 .item-text {
     margin-top: 10px;
     color: black!important;
-    font-size: 1.75em;
 }
 
-.dark .user-description h1, .dark .user h2 {
+.user-description {
+    color: rgb(122, 122, 122)
+}
+
+.dark .user-description h1, .user h2 {
+    margin-bottom: 0.25em;
     color: #DADADA;
 }
-.user-description, .user h2 {
-    color: rgb(122, 122, 122);
-}
-
-
-.user-description h1 {
+.user-description h1, .user h2 {
     margin-bottom: 0.25em;
+    color: black;
 }
 .user-description p {
     display: inline;
     font-weight: bold;
 }
 .user-about {
-    font-size: 2em;
     margin-top: 1.5em;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 

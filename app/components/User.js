@@ -55,27 +55,31 @@ export default class User extends React.Component {
             <React.Fragment>
                 {this.isLoading() && <Loading content='Fetching user data'/>}
                 {this.isLoading() === false && (
-                    <React.Fragment>
+                    <div className='user'>
                         <div className='user-description'>
                             <h1>{user.id}</h1>
-                            {'joined '}
-                            <p>{convertTime(user.created)}</p>
-                            {' has '}
-                            <p>{user.karma}</p> 
-                            {' karma'}
+                            <span>
+                                {'joined '}
+                                <p>{convertTime(user.created)}</p>
+                                {' has '}
+                                <p>{user.karma}</p> 
+                                {' karma'}
+                            </span>
                         </div>
                         <div className='user-about'>
                             {user.about !== null && <div dangerouslySetInnerHTML={this.createMarkup(user.about)}/>}
                         </div>
+                        <hr/>
                         <h2>Posts</h2>
-                        <div className='item-description'>
-                            {Object.keys(posts).map((id) => (
+                        {Object.keys(posts).map((id) => (
+                            <React.Fragment>
                                 <li key={id}>
-                                    <Item fontSize='15px' item={posts[id]}/>
+                                    <Item item={posts[id]}/>
                                 </li>
-                            ))}
-                        </div>
-                    </React.Fragment>
+                                <hr/>
+                            </React.Fragment>
+                        ))}
+                    </div>
                 )}
             </React.Fragment>
         )

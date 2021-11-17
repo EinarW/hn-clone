@@ -64,9 +64,12 @@ export default class Popular extends React.Component {
                         <React.Fragment>
                             <ul>
                                 {Object.keys(posts).map((id) => (
-                                    <li key={id}>
-                                        <Item item={posts[id]}/>
-                                    </li>
+                                    <React.Fragment>
+                                        <li key={id}>
+                                            <Item item={posts[id]}/>
+                                        </li>
+                                        <hr/>
+                                    </React.Fragment>
                                 ))}
                             </ul>
                         </React.Fragment>

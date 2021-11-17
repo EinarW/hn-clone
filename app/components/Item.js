@@ -26,7 +26,7 @@ export default class Item extends React.Component {
             <ThemeConsumer>
                 {({ theme }) => (
                     <div 
-                        className='item-description' 
+                        className='item' 
                         style={
                             isComment ? {
                                 backgroundColor: theme === 'light' ? 'rgb(240,240,240)' : 'rgb(15,15,15)', 
@@ -39,7 +39,7 @@ export default class Item extends React.Component {
                         <ul>
                             {isComment !== true && (
                                 <li>
-                                    <h3 style={{fontSize: fontSize}} className='title'>
+                                    <h3 className='title'>
                                         {item.url === undefined && (
                                             <Link to={`/post?id=${item.id}`}>
                                                 {item.title}
@@ -53,25 +53,29 @@ export default class Item extends React.Component {
                                     </h3>
                                 </li>
                             )}
-                            <li>
-                                {'by '} 
-                                <Link 
-                                    className='with-line' 
-                                    to={`/user?id=${item.by}`}
-                                >
-                                    {item.by}
-                                </Link>
-                                {` on ${convertTime(item.time)}`}
-                                    <React.Fragment>
-                                    {` with `}
-                                    <Link 
-                                        className='with-line' 
-                                        to={`/post?id=${item.id}`}
-                                    >
-                                        {this.numberOfComments(item.kids)}
-                                    </Link>
-                                    {isComment === false ? ' top level comments' : ((this.numberOfComments(item.kids) > 1) || (this.numberOfComments(item.kids) === 0) ? ' replies' : ' reply')}
-                                </React.Fragment>
+                            <li className='item-description'>
+                                <ul>
+                                    <li>
+                                        {'by '} 
+                                        <Link 
+                                            className='with-line' 
+                                            to={`/user?id=${item.by}`}
+                                        >
+                                            {item.by}
+                                        </Link>
+                                        {` on ${convertTime(item.time)}`}
+                                    </li>
+                                    <li>
+                                        {` with `}
+                                        <Link 
+                                            className='with-line' 
+                                            to={`/post?id=${item.id}`}
+                                        >
+                                            {this.numberOfComments(item.kids)}
+                                        </Link>
+                                        {isComment === false ? ' top level comments' : ((this.numberOfComments(item.kids) > 1) || (this.numberOfComments(item.kids) === 0) ? ' replies' : ' reply')}
+                                    </li>
+                                </ul>
                             </li>
                             {this.props.showText && item.url === undefined && (
                                 <li className='item-text'>

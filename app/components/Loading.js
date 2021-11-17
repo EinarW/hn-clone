@@ -21,7 +21,7 @@ export default class Loading extends React.Component {
 
     render() {
         return(
-            <p>
+            <p className='loading-text'>
                 {this.state.content}
             </p>
         )
