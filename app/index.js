@@ -5,33 +5,48 @@ import Posts from './components/Posts'
 import User from './components/User'
 import Post from './components/Post'
 import Loading from './components/Loading'
+import { ThemeProvider } from './contexts/theme'
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom'
 
-export default function App () {
+export default class App extends React.Component {
+    state = {
+        theme: 'dark',
+        toggleTheme: () => {
+            this.setState(({ theme }) => ({
+                theme: theme === 'light' ? 'dark' : 'light'
+            }))
+        }
+    }
 
-    return(
-        <Router>
-            <div className='container'>
-                <h1><Link className='main-title' to='/posts'>Hacker News Clone</Link></h1>
-                <React.Suspense fallback={<Loading/>}>
-                    <Switch>
-                        <Redirect exact from='/' to='/posts'/>
-                        <Route exact path='/posts' component={Posts} />
-                        <Route exact path='/post' component={Post} />
-                        <Route exact path='/user' component={User} />
-
-                        <Route render={() => (
-                                <React.Fragment>
-                                    <h1>404 - This page does not exist</h1>
-                                    <Link to='/'>Click here to return</Link>
-                                </React.Fragment>
-                            )}
-                        />
-                    </Switch>
-                </React.Suspense>
-            </div>
-        </Router>
-    )
+    render() {
+        return(
+            <Router>
+                <ThemeProvider value={this.state}>
+                    <div className={this.state.theme}>
+                        <div className='container'>
+                            <h1><Link className='main-title' to='/posts'>Hacker News Clone</Link></h1>
+                            <React.Suspense fallback={<Loading/>}>
+                                <Switch>
+                                    <Redirect exact from='/' to='/posts'/>
+                                    <Route exact path='/posts' component={Posts} />
+                                    <Route exact path='/post' component={Post} />
+                                    <Route exact path='/user' component={User} />
+            
+                                    <Route render={() => (
+                                            <React.Fragment>
+                                                <h1>404 - This page does not exist</h1>
+                                                <Link to='/'>Click here to return</Link>
+                                            </React.Fragment>
+                                        )}
+                                    />
+                                </Switch>
+                            </React.Suspense>
+                        </div>
+                    </div>
+                </ThemeProvider>
+            </Router>
+        )   
+    }
 }
 
 ReactDOM.render(

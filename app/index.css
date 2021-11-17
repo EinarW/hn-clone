@@ -28,7 +28,7 @@ Link {
 
 .dark {
     color: #DADADA;
-    background: #1c2022;
+    background: #1C2022;
     min-height: 100%;
 }
 
@@ -51,7 +51,16 @@ Link {
     justify-content: space-around;
 }
 
+.bg-dark {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+}
 
+
+.btn-clear {
+    border: none;
+    background: transparent;
+}
 
 .nav-link {
     margin-right: 0.5em;
@@ -64,6 +73,10 @@ Link {
 
 .item-description {
 margin-bottom: 2em;
+}
+
+.dark .item-description a {
+    color: #DADADA;;
 }
 .item-description a {
     color: black;
@@ -79,6 +92,12 @@ margin-bottom: 2em;
 .item-description li {
     color: rgb(122, 122, 122)
 }
+
+.dark .item-text {
+    margin-top: 10px;
+    color: #DADADA!important;
+}
+
 .item-text {
     margin-top: 10px;
     color: black!important;
@@ -86,6 +105,11 @@ margin-bottom: 2em;
 
 .user-description {
     color: rgb(122, 122, 122)
+}
+
+.dark .user-description h1, .user h2 {
+    margin-bottom: 0.25em;
+    color: #DADADA;
 }
 .user-description h1, .user h2 {
     margin-bottom: 0.25em;
