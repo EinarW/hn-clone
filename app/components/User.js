@@ -44,9 +44,7 @@ export default class User extends React.Component {
         return (user === null || posts === null) && error === null
     }
 
-    createMarkup(markup) {
-        return {__html: markup}
-    }
+    createMarkup = (markup) => ({__html: markup})
     
     render () {
         const { posts, user } = this.state
@@ -72,11 +70,11 @@ export default class User extends React.Component {
                         <hr/>
                         <h2>Posts</h2>
                         {Object.keys(posts).map((id) => (
-                            <React.Fragment>
+                            <React.Fragment key={'top' + id}>
                                 <li key={id}>
                                     <Item item={posts[id]}/>
                                 </li>
-                                <hr/>
+                                <hr key={'hr' + id}/>
                             </React.Fragment>
                         ))}
                     </div>

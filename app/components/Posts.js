@@ -5,7 +5,7 @@ import Nav from './Nav'
 import queryString from "query-string";
 import { getStories } from "../utils/api";
 
-export default class Popular extends React.Component {
+export default class Posts extends React.Component {
     state = {
         type: 'top',
         posts: null,
@@ -64,11 +64,11 @@ export default class Popular extends React.Component {
                         <React.Fragment>
                             <ul>
                                 {Object.keys(posts).map((id) => (
-                                    <React.Fragment>
+                                    <React.Fragment key={'top' + id}>
                                         <li key={id}>
                                             <Item item={posts[id]}/>
                                         </li>
-                                        <hr/>
+                                        <hr key={'hr' + id}/>
                                     </React.Fragment>
                                 ))}
                             </ul>

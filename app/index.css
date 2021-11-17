@@ -5,6 +5,7 @@ html, body, #app {
 }
 
 body {
+    position: absolute;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
@@ -23,27 +24,27 @@ Link {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 1.75em;
 }
 
 h1 {
-    font-size: 6em;
+    font-size: 2.15em;
 }
 .loading-text {
-    font-size: 3em;
+    font-size: 1.5em;
 }
 .btn-theme, h2 {
-    font-size: 3.5em;
+    font-size: 1.5em;
 }
 h3 a, .item-description, .user-description span {
-    font-size: 2.5em;
+    font-size: 1em;
 }
 
 
 hr {
     border: 0;
     background-color:#DADADA;
-    height: 0.15em;
+    height: 0.075em;
 }
 .dark hr {
     background-color:#0f1213;
@@ -88,15 +89,15 @@ hr {
 .nav-link {
     margin-right: 0.5em;
     text-decoration: none;
-    font-size: 3.5em;
+    font-size: 1.5em;
     font-weight: bold;
     color: inherit;
     cursor: pointer;
 }
 
 .item {
-    margin-top: 3em;
-    margin-bottom: 4em;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
 }
 
 .dark .item a {
@@ -125,7 +126,7 @@ hr {
 .item-text {
     margin-top: 10px;
     color: black!important;
-    font-size: 1.75em;
+    font-size: 1em;
 }
 
 .dark .user-description h1, .dark .user h2 {
@@ -144,9 +145,9 @@ hr {
     font-weight: bold;
 }
 .user-about {
-    font-size: 2em;
-    margin-top: 1.5em;
-    margin-bottom: 2em;
+    font-size: 1.25em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 
