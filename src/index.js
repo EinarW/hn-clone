@@ -26,7 +26,6 @@ export default class App extends React.Component {
                 <ThemeProvider value={this.state}>
                     <div className={this.state.theme}>
                         <div className='container'>
-                            <h1><Link className='main-title' to='/posts'>Hacker News Clone</Link></h1>
                             <React.Suspense fallback={<Loading/>}>
                                 <Switch>
                                     <Redirect exact from='/' to='/posts'/>
