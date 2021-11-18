@@ -1,3 +1,5 @@
+
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -50,6 +52,8 @@ export default class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App />,                        // React Element
-    document.getElementById('app')  // Where to render element to
+    <App/>,                        // React Element
+    document.getElementById('root')  // Where to render element to
 )
+
+serviceWorkerRegistration.register();
